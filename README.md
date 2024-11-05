@@ -1,9 +1,11 @@
 # EE2026_LostInBasys3
-Lost in Basys3 is a hide-and-seek game where the player must traverse through the maze and run away from the bot seeker. The player can collect power-ups during the game to enhance or affect their movement speed. Player wins if the timer runs out and loses when they are caught by the seeker. Below is the example of the overall game. 
-![Screenshot 2024-10-12 180702](https://github.com/user-attachments/assets/0a2f806d-6556-4f06-8406-d548e18e2dd1)
-However, the player will only be able to see the area within a circle ("sight area"). Below is the example of the player display.
-![Screenshot 2024-10-12 180724](https://github.com/user-attachments/assets/92d32a92-ae25-4f06-8cd2-a6063a0a5bcb)
+Lost in Basys3 is a hide-and-seek game where the player must traverse through the maze and run away from the bot seeker. The player can collect power-ups during the game to enhance or affect their movement speed. Player wins if the timer runs out and loses when they are caught by the seeker. Below is an example of the overall game.
 
+![Screenshot 2024-10-12 180702](https://github.com/user-attachments/assets/7d15dc41-e273-4873-bd14-a4ff1e3079fe)
+
+However, the player will only be able to see the area within a circle ("sight area"). Below is an example of the player display.
+
+![Screenshot 2024-10-12 180724](https://github.com/user-attachments/assets/d70bcc3f-bcb2-4f00-a170-3bb2b9eb156a)
 
 # Further improvement ideas
 - Currently, the BFS of the bot movement will only be reset if every possible move has been exhausted. Resetting the BFS every time the hider moves will be an optimal way of solving this and the late-loop detection issue.
