@@ -1,4 +1,4 @@
-module debounce (
+module debounce_a (
     input clk,               // System clock
     input btn_in,            // Raw button input
     output reg btn_out       // Debounced button output
