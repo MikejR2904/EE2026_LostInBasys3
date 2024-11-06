@@ -1,10 +1,17 @@
-module speed_select(input sysclk, reset, en, power_up_active, curse_active, input [10:0] energy, output reg velocity_clk = 0);
+module speed_select(input sysclk, reset, en, power_up_active, curse_active, input [31:0] speed_limit, input [10:0] energy, output reg velocity_clk = 0);
     reg [31:0] count = 0;
     reg [31:0] max_count = 99_999_999;
 
-    localparam FAST_SPEED = 2_272_726; //22Hz
-    localparam NORM_SPEED = 2_777_776; //18Hz 
-    localparam NORM_SPEED_SLOW = 3_333_332; //15Hz
+    // localparam FAST_SPEED = 2_272_726; //22Hz
+    // localparam NORM_SPEED = 2_777_776; //18Hz 
+    // localparam NORM_SPEED_SLOW = 3_333_332; //15Hz
+    reg[31:0] FAST_SPEED, NORM_SPEED, NORM_SPEED_SLOW;
+
+    always @(*) begin
+        NORM_SPEED = speed_limit;
+        FAST_SPEED = NORM_SPEED - 50_000;
+        NORM_SPEED_SLOW = NORM_SPEED + 50_000;
+    end
     
     always @ (posedge sysclk) begin
         if (reset) begin
