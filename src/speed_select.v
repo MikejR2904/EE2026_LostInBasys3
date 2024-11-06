@@ -1,6 +1,15 @@
-module speed_select(input sysclk, reset, en, power_up_active, curse_active, input [10:0] energy, output reg velocity_clk = 0);
+module speed_select(input sysclk, reset, en, power_up_active, curse_active, input [10:0] energy, input [7:0] speed_setting, output reg velocity_clk = 0);
     reg [31:0] count = 0;
     reg [31:0] max_count = 99_999_999;
+    
+    wire [31:0] SPEEDLIMIT; 
+    assign SPEEDLIMIT = speed_setting == 1 ? TIMELIMIT1 :
+                   speed_setting == 2 ? TIMELIMIT2 :
+                   speed_setting == 3 ? TIMELIMIT3 :
+                   speed_setting == 4 ? TIMELIMIT4 :
+                   speed_setting == 5 ? TIMELIMIT5 : 
+                    TIMELIMIT3;
+
     localparam FAST_SPEED = 2_272_726; //22Hz
     localparam NORM_SPEED = 2_777_776; //18Hz 
     localparam NORM_SPEED_SLOW = 3_333_332; //15Hz
