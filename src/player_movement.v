@@ -6,7 +6,7 @@ module player_movement(
     input [3:0] initial_player_y,
     input [8:0] bram_dout,
     input [4:0] PB,
-    input speed_limit,
+    input [31:0] speed_limit,
     output reg [3:0] playerX,
     output reg [3:0] playerY,
     output reg [2:0] chunkX,
