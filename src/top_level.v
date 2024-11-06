@@ -133,6 +133,19 @@ module top_level (
                        time_setting == 3 ? TIMELIMIT3 :
                        time_setting == 4 ? TIMELIMIT4 :
                        TIMELIMIT3;
+
+    localparam SPEEDLIMIT1 = 3_300_000;
+    localparam SPEEDLIMIT2 = 3_000_000;
+    localparam SPEEDLIMIT3 = 2_777_776;
+    localparam SPEEDLIMIT4 = 2_400_000;
+    localparam SPEEDLIMIT5 = 2_000_000;
+    wire [31:0] SPEEDLIMIT; 
+    assign SPEEDLIMIT = speed_setting == 1 ? SPEEDLIMIT1 :
+                       speed_setting == 2 ? SPEEDLIMIT2 :
+                       speed_setting == 3 ? SPEEDLIMIT3 :
+                       speed_setting == 4 ? SPEEDLIMIT4 :
+                       speed_setting == 5 ? SPEEDLIMIT5 :
+                       SPEEDLIMIT3;
     
     
     // Timer Logic
@@ -478,6 +491,7 @@ module top_level (
         .initial_player_y(initial_player_y),
         .bram_dout(bram_dout_a),
         .PB(PB),
+        .speed_limit(SPEEDLIMIT),
         .playerX(player_x),
         .playerY(player_y),
         .chunkX(chunk_x),
